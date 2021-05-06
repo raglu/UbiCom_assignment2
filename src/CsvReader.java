@@ -5,10 +5,10 @@ import java.util.ArrayList;
 
 public class CsvReader {
 
-    static ArrayList<RadioMapEntry> loadRadioMapEntries(String fileName) throws IOException {
+    static ArrayList<RadioMapEntry> loadRadioMapEntries(String filePath) throws IOException {
         ArrayList<RadioMapEntry> radioMapEntries = new ArrayList<>();
 
-        BufferedReader csvReader = new BufferedReader(new FileReader(fileName));
+        BufferedReader csvReader = new BufferedReader(new FileReader(filePath));
         String row;
         boolean isHeader = true;
         while ((row = csvReader.readLine()) != null) {
@@ -24,10 +24,10 @@ public class CsvReader {
         return radioMapEntries;
     }
 
-    static ArrayList<SignalEntry> loadSignalEntries(String fileName) throws IOException {
+    static ArrayList<SignalEntry> loadSignalEntries(String filePath) throws IOException {
         ArrayList<SignalEntry> signalEntries = new ArrayList<>();
 
-        BufferedReader csvReader = new BufferedReader(new FileReader(fileName));
+        BufferedReader csvReader = new BufferedReader(new FileReader(filePath));
         String row;
         boolean isHeader = true;
         while ((row = csvReader.readLine()) != null) {

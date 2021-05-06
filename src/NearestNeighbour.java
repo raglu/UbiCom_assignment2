@@ -7,7 +7,7 @@ public class NearestNeighbour {
     static ArrayList<RadioMapEntry> radioMapEntries = new ArrayList<>();
     static ArrayList<SignalEntry> signalEntries = new ArrayList<>();
 
-    public static void main(String args[]) throws IOException {
+    public static void main(String[] args) throws IOException {
         radioMapEntries = CsvReader.loadRadioMapEntries("C:\\Users\\rasmu\\Documents\\GitHub\\UbiCom_assignment2\\src\\train.csv");
         signalEntries = CsvReader.loadSignalEntries("C:\\Users\\rasmu\\Documents\\GitHub\\UbiCom_assignment2\\src\\test.csv");
 
@@ -15,8 +15,7 @@ public class NearestNeighbour {
             s.getEuclideanDistances(radioMapEntries);
         }
         for (SignalEntry s: signalEntries) {
-            RadioMapEntry r = s.euclideanDistances.entrySet().stream().min(Map.Entry.comparingByValue()).get().getKey();
-            s.nearestRadioMapEntry = r;
+            s.nearestRadioMapEntry = s.euclideanDistances.entrySet().stream().min(Map.Entry.comparingByValue()).get().getKey();
         }
 
     }
