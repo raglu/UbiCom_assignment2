@@ -3,22 +3,18 @@ import java.util.HashMap;
 
 public class SignalEntry {
 
-    float x, y;
-
     float[] signalStrengths;
 
     HashMap<RadioMapEntry, Float> euclideanDistances;
 
     RadioMapEntry nearestRadioMapEntry = null;
 
-    public SignalEntry(float x, float y, float[] signalStrengths) {
-        this.x = x;
-        this.y = y;
+    public SignalEntry(float[] signalStrengths) {
         this.signalStrengths = signalStrengths;
         euclideanDistances= new HashMap<>();
     }
 
-    public void populateEuclideanDistances(ArrayList<RadioMapEntry> radioMapEntries){
+    public void getEuclideanDistances(ArrayList<RadioMapEntry> radioMapEntries){
         for(RadioMapEntry r: radioMapEntries) {
             euclideanDistances.put(r,calculateEuclideanDistance(r));
         }
